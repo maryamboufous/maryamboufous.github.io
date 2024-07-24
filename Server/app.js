@@ -334,7 +334,6 @@ app.put('/users/:userId', async (req, res) => {
     if (newPassword) {
       user.password = await bcrypt.hash(newPassword, 10);
     }
-
     await user.save();
     res.json({ status: 'ok', user });
   } catch (error) {
